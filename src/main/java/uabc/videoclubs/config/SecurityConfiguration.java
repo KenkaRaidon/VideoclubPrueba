@@ -25,7 +25,7 @@ public class SecurityConfiguration {
         http.authorizeRequests().antMatchers("/css/*", "/js/*", "/assets/**").permitAll()
 		.anyRequest().authenticated()
 		.and()
-		.formLogin().loginPage("/videoclub/login").defaultSuccessUrl("/videoclub/").permitAll()
+		.formLogin().loginPage("/login").defaultSuccessUrl("/index").permitAll()
 		.and()
 		.logout().permitAll();
 		
