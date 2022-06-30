@@ -66,7 +66,7 @@ public class HomeController {
 		model.addAttribute("catalogo",catalogo);
 		model.addAttribute("categorias",categorias);
 		
-		return "views/index";
+		return "views/films";
 	}
 	
 	@RequestMapping(value = "filtroTitulo" , method = RequestMethod.POST)
