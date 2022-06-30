@@ -1,10 +1,10 @@
 package uabc.videoclubs.controllers;
 
-import java.io.IOException;
+//import java.io.IOException;
 import java.security.Principal;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+//import java.text.DateFormat;
+//import java.text.SimpleDateFormat;
+//import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -29,11 +29,11 @@ import uabc.videoclubs.entities.Film;
 import uabc.videoclubs.services.CategoryService;
 import uabc.videoclubs.services.FilmService;
 import uabc.videoclubs.services.InventoryService;
-import uabc.videoclubs.services.LanguageService;
+//import uabc.videoclubs.services.LanguageService;
 
 
 @Controller
-public class HomeController {
+public class FilmController {
 
     @Autowired
 	private FilmService filmService;
@@ -41,12 +41,13 @@ public class HomeController {
 	@Autowired
 	private CategoryService categoryService;
 	
-	@Autowired
-	private LanguageService languageService;
+	/*@Autowired
+	private LanguageService languageService;*/
 	
 	@Autowired
 	private InventoryService inventoryService;
 
+	@SuppressWarnings("unchecked")
 	@RequestMapping(value = {"/","index"})
 	public String index(Model model, HttpServletRequest request, HttpServletResponse response, Principal principal) {
 		
@@ -141,12 +142,4 @@ public class HomeController {
 		response.put("result", inventoryService.findByInventoryId(inventoryId));		
 		return response;
 	}
-
-    @GetMapping("/login")
-    public String login(@RequestParam(value = "error", required = false) String error, Model model, Principal principal) {
-        if(error!=null){
-            model.addAttribute("error","Nombre de usuario o contraseña incorrecta");
-        }
-        return "login";
-    }
 }
